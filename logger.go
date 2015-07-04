@@ -19,8 +19,7 @@ func Logger() Handler {
 			}
 		}
 
-		const layout = "Jan 2, 2006 at 3:04pm (MST)"
-		log.Printf("Started %s %s for %s | %v", req.Method, req.URL.RequestURI(), addr, start.Format(layout))
+		log.Printf("Started %s %s for %s when %v", req.Method, req.URL.Path, addr, start)
 
 		rw := res.(ResponseWriter)
 		c.Next()
